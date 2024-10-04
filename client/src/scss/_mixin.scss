@@ -1,0 +1,15 @@
+@mixin flex($align-item, $justify-content, $direction: row) {
+  display: flex;
+  align-items: $align-item;
+  justify-content: $justify-content;
+  flex-direction: $direction;
+}
+
+@mixin text($line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
