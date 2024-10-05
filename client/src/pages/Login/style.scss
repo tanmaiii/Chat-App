@@ -11,19 +11,56 @@
     }
   }
   &_container {
+    width: 400px;
+
     &_item {
       padding: $space-14 $space-24;
       border: 1px solid $color-black-3;
       border-radius: $radius-8;
-      @include flex(center, center, row);
+      @include flex(center, space-between, row);
       gap: $space-8;
       cursor: pointer;
-      margin-bottom: $space-8;
-      h2 {
-        font-size: $size-16;
-        color: $color-white-1;
-        font-weight: $font-bold;
+      margin-top: $space-8;
+      &_logo {
+        --size: 20px;
+        height: var(--size);
+        width: var(--size);
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
       }
+      &_desc {
+        flex: 1;
+        @include flex(center, center, row);
+
+        h2 {
+          font-size: $size-16;
+          color: $color-white-1;
+          font-weight: $font-bold;
+        }
+      }
+    }
+
+    .line {
+      width: 100%;
+      height: 1.4px;
+      position: relative;
+      background-color: $color-black-3;
+      margin: $space-12 0;
+
+      span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background-color: $color-black-1;
+        padding: 0 $space-12;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &_group {
     }
   }
 }
