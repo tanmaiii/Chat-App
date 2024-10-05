@@ -1,0 +1,63 @@
+@use "../../scss/" as *;
+
+.Messages {
+  @include flex(center, center, column);
+  position: relative;
+  min-height: 100%;
+  height: 100%;
+  &_header {
+    // background-color: $color-black-2;
+    width: 100%;
+    padding: $space-8;
+    border-bottom: 1px solid $color-black-3;
+    &_info {
+      @include flex(center, start, row);
+      &_avatar {
+        --size: 40px;
+        width: var(--size);
+        height: var(--size);
+        min-width: var(--size);
+        min-height: var(--size);
+        border-radius: 50%;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+      &_desc {
+        margin-left: $space-8;
+        h4 {
+          @include text(1);
+          font-size: $size-16;
+          font-weight: $font-bold;
+          color: $color-white-1;
+        }
+        span {
+          font-size: $size-14;
+          font-weight: $font-light;
+          color: $color-white-2;
+        }
+      }
+    }
+  }
+  &_body {
+    flex: 1;
+    // padding: $space-8;
+    overflow-y: scroll;
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 80px;
+    &_list {
+      padding: 0 $space-24;
+    }
+  }
+  &_input {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: $space-8;
+    @include flex(center, center);
+  }
+}

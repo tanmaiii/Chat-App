@@ -1,0 +1,102 @@
+@use "../../scss/" as *;
+
+.MessageItem {
+  @include flex(start, start, row);
+  gap: $space-12;
+  margin-bottom: $space-12;
+  width: 100%;
+
+  &:hover {
+    .MessageItem_content_desc_buttons {
+      display: flex;
+    }
+  }
+
+  &.outgoing {
+    justify-content: end;
+    .MessageItem_avatar {
+      display: none;
+    }
+    .MessageItem_content {
+      align-items: end;
+    }
+    .MessageItem_content_desc {
+      flex-direction: row-reverse;
+      & > p {
+        background-color: $color-primary;
+        border-radius: $radius-12 0 $radius-12 $radius-12;
+      }
+    }
+    .MessageItem_content_header {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &.ingoing {
+  }
+
+  &_avatar {
+    --size: 40px;
+    width: var(--size);
+    height: var(--size);
+    min-width: var(--size);
+    min-height: var(--size);
+    border-radius: 50%;
+    margin-right: $space-8;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  &_content {
+    @include flex(start, start, column);
+    &_header {
+      margin-bottom: $space-8;
+      @include flex(center, start, row);
+      gap: $space-4;
+      h4 {
+        @include text(1);
+        font-size: $size-16;
+        font-weight: $font-medium;
+        color: $color-white-1;
+      }
+      & > .time {
+        font-size: $size-14;
+        font-weight: $font-light;
+        color: $color-white-2;
+        margin-top: $space-4;
+      }
+    }
+    &_desc {
+      @include flex(center, center, row);
+      gap: $space-4;
+      & > p {
+        background-color: $color-black-3;
+        padding: $space-12;
+        border-radius: 0 $radius-12 $radius-12 $radius-12;
+        max-width: 500px;
+      }
+      &_buttons {
+        display: none;
+        button {
+          i {
+            --size: 34px;
+            width: var(--size);
+            height: var(--size);
+            border-radius: 50%;
+            @include flex(center, center);
+            font-size: $size-16;
+            color: $color-white-1;
+            cursor: pointer;
+            &:hover {
+              background-color: $color-black-2;
+            }
+          }
+        }
+      }
+    }
+  }
+}

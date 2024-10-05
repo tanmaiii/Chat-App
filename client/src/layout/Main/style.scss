@@ -1,0 +1,15 @@
+@use "../../scss/" as *;
+
+.main {
+  @include flex(center, center, column);
+  min-height: 100vh;
+  min-width: 100vw;
+  max-height: 100vh;
+  &_header {
+    height: $height-header;
+  }
+  &_body {
+    height: calc(100vh - $height-header);
+    width: 100%;
+  }
+}
