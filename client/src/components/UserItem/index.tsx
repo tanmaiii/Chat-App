@@ -19,9 +19,7 @@ const UserItem = () => {
             consequatur est corporis ullam doloribus. Ipsum aperiam cumque
             tempore, quae inventore ipsam!
           </span>
-          <div className="number">
-            <span>1</span>
-          </div>
+          <div className="notify"></div>
         </div>
       </div>
     </div>

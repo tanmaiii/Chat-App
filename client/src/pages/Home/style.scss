@@ -3,7 +3,6 @@
 .home {
   background-color: $color-black-1;
   width: 100%;
-  //   min-height: 100vh;
   height: 100%;
   &_container {
     @include flex(center, start, row);
@@ -13,6 +12,12 @@
       width: $width-sidebar;
       height: 100%;
       background-color: $color-black-2;
+      @include tablet {
+        width: $width-sidebar-tablet;
+      }
+      @include mobile {
+        width: $width-sidebar-mobile;
+      }
     }
     &_messages {
       flex: 1;

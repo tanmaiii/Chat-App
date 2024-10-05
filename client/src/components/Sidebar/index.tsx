@@ -6,9 +6,9 @@ const Sidebar = () => {
   return (
     <div className="Sidebar">
       <div className="Sidebar_header">
-        <h2>
-            
-        </h2>
+        <button>
+          <i className="fa-regular fa-sidebar"></i>
+        </button>
         <button>
           <i className="fas fa-plus"></i>
         </button>

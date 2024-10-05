@@ -3,11 +3,19 @@ import queryString from "query-string";
 
 import apiConfig from "./apiConfig";
 
+// headers: {
+//   Accept: "application/json",
+//   "Content-Type": "application/json",
+//   "Access-Control-Allow-Credentials": "true",
+// },
+
 const axiosClient = axios.create({
   baseURL: apiConfig.baseUrl,
   withCredentials: true,
   headers: {
+    Accept: "application/json",
     "Content-Type": "application/json",
+    "Access-Control-Allow-Credentials": "true",
   },
   paramsSerializer: (params) => queryString.stringify({ ...params }),
 });

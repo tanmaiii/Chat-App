@@ -1,0 +1,9 @@
+@use "../../scss/" as *;
+
+.Auth {
+  @include flex(center, center, column);
+  min-height: 100vh;
+  min-width: 100vw;
+  max-height: 100vh;
+  background-color: $color-black-1;
+}

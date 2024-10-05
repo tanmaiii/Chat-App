@@ -1,7 +1,5 @@
 import User from "../models/User.js";
-
-// User.hasMany(Post, {
-//   foreignKey: "userId", // Khóa ngoại nằm trong bảng Post
-//   onDelete: "CASCADE", // Khi người dùng bị xóa, các bài viết cũng bị xóa
-//   onUpdate: "CASCADE",
-// });
+import Chat from "../models/Chat.js";
+import GroupMembers from "../models/GroupMembers.js";
+import Groups from "../models/Groups.js";
+import Messages from "../models/Messages.js";

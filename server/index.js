@@ -1,19 +1,16 @@
-import express from "express";
-import http from "http";
-import { Server as SocketIo } from "socket.io";
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
 import cors from "cors";
-import sequelize from "./src/config/database.js";
-import User from "./src/models/User.js";
+import dotenv from "dotenv";
+import express from "express";
+import session from "express-session"; // Change this line
+import http from "http";
+import passport from "passport";
+import { dirname } from "path";
+import { Server as SocketIo } from "socket.io";
+import { fileURLToPath } from "url";
 import "./src/config/associations.js";
+import sequelize from "./src/config/database.js";
 import "./src/config/passport.js";
 import routes from "./src/routes/index.js";
-import passport from "passport";
-import cookieSession from "cookie-session";
-import session from "express-session"; // Change this line
-
-import dotenv from "dotenv";
 dotenv.config();
 
 const port = 8000;
@@ -28,7 +25,7 @@ const server = http.createServer(app);
 // Set up CORS configuration
 const io = new SocketIo(server, {
   cors: {
-    origin: "http://localhost:3000", // or your frontend URL
+    origin: process.env.URL_FRONTEND, // or your frontend URL
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true,
@@ -37,6 +34,7 @@ const io = new SocketIo(server, {
 
 app.use(
   session({
+    name: "session",
     secret: "your-secret-key", // Change this line
     resave: false,
     saveUninitialized: true,
@@ -64,7 +62,7 @@ app.get("/", (req, res) => {
   return res.send("Xin chào");
 });
 
-app.use("/", routes);
+app.use("/api/", routes);
 // Thiết lập passport
 
 // io.on("connection", (socket) => {

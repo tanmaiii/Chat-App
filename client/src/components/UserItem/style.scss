@@ -26,7 +26,7 @@
       object-fit: cover;
     }
   }
-  
+
   &_content {
     flex: 1;
     @include flex(unset, unset, column);
@@ -53,21 +53,14 @@
         font-weight: $font-light;
         color: $color-white-2;
       }
-      .number {
-        --size: 20px;
+      .notify {
+        --size: 10px;
         width: var(--size);
         height: var(--size);
         min-width: var(--size);
         min-height: var(--size);
-        @include flex(center, center);
         border-radius: 50%;
         background-color: $color-primary;
-        & > span {
-          @include text(1);
-          font-size: 12px;
-          font-weight: $font-light;
-          color: $color-white-1;
-        }
       }
     }
   }

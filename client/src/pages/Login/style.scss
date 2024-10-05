@@ -1,0 +1,29 @@
+@use "../../scss/" as *;
+
+.Login {
+  @include flex(center, center, column);
+  gap: $space-12;
+  &_header {
+    h1 {
+      font-size: $size-30;
+      color: $color-primary;
+      font-weight: $font-bold;
+    }
+  }
+  &_container {
+    &_item {
+      padding: $space-14 $space-24;
+      border: 1px solid $color-black-3;
+      border-radius: $radius-8;
+      @include flex(center, center, row);
+      gap: $space-8;
+      cursor: pointer;
+      margin-bottom: $space-8;
+      h2 {
+        font-size: $size-16;
+        color: $color-white-1;
+        font-weight: $font-bold;
+      }
+    }
+  }
+}

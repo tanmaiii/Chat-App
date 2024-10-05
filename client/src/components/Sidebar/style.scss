@@ -4,11 +4,11 @@
   @include flex(center, center, column);
   width: 100%;
   height: 100%;
-  
+
   &_header {
     @include flex(center, space-between, row);
     width: 100%;
-    padding: $space-12 $space-20;
+    padding: $space-8 $space-20;
     h2 {
       @include text(1);
       font-size: $size-24;
@@ -31,9 +31,10 @@
       }
     }
   }
+
   &_input {
     width: 100%;
-    padding: $space-12 $space-20;
+    padding: $space-8 $space-20;
 
     &_search {
       border-radius: $radius-8;
@@ -55,6 +56,7 @@
       }
     }
   }
+
   &_list {
     overflow-y: scroll;
     padding: $space-12;

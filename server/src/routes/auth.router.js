@@ -20,25 +20,29 @@ router.get("/login/failed", (req, res) => {
   return res.status(401).json({ success: false, message: "Login failed" });
 });
 
+router.get("/logout", (req, res) => {
+  req.logout();
+  return res.redirect(process.env.URL_FRONTEND);
+});
+
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 
 router.get(
   "/google/callback",
   passport.authenticate("google", {
     successRedirect: process.env.URL_FRONTEND,
-    failureRedirect: "/login/failed",
+    failureRedirect: "api/login/failed",
   })
 );
 
-router.get("/logout", (req, res) => {
-  req.session.destroy((err) => {
-    if (err) {
-      console.error("Lỗi khi hủy session:", err);
-      return res.status(500).send("Có lỗi xảy ra khi đăng xuất");
-    }
-    
-    res.redirect(process.env.URL_FRONTEND);
-  });
-});
+router.get("/github", passport.authenticate("github", { scope: ["profile"] }));
+
+router.get(
+  "/github/callback",
+  passport.authenticate("github", {
+    successRedirect: process.env.URL_FRONTEND,
+    failureRedirect: "/login/failed",
+  })
+);
 
 export default router;
