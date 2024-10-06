@@ -7,6 +7,7 @@ import passport from "passport";
 import { dirname } from "path";
 import { Server as SocketIo } from "socket.io";
 import { fileURLToPath } from "url";
+import cookieParser from "cookie-parser";
 import "./src/config/associations.js";
 import sequelize from "./src/config/database.js";
 import "./src/config/passport.js";
@@ -21,6 +22,16 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const server = http.createServer(app);
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", true);
+  res.header("Access-Control-Allow-Credentials", true);
+  next();
+});
+
+app.use(cookieParser());
+
+app.use(express.json());
 
 // Set up CORS configuration
 const io = new SocketIo(server, {

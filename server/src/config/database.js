@@ -18,4 +18,8 @@ sequelize
   .then(() => console.log("Kết nối MySQL thành công"))
   .catch((err) => console.error("Không thể kết nối đến MySQL:", err));
 
+// sequelize.sync({ alter: true  }).then(() => {
+//   console.log("Database schema has been updated (altered).");
+// });
+
 export default sequelize;
